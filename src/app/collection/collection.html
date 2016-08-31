@@ -39,6 +39,7 @@
   </div>
 
   <!-- creatures captured -->
+  <h2 class="hunt-msg" ng-if="$ctrl.cages.length == 0">Your cages are empty, hunt for some creature..!</h2>
   <md-grid-list class="cages-cnt" md-cols-xs="1" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="6" md-row-height-gt-md="1:1" md-row-height="2:2" md-gutter="12px" md-gutter-gt-sm="8px">
     <md-grid-tile class="creature" ng-repeat="creature in $ctrl.cages | orderBy:$ctrl.ordering track by $index" ng-style="{'background-image': 'url(/assets/'+creature.type+'.jpg)'}">
       <div class="header">
