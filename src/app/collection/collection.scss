@@ -1,0 +1,96 @@
+.collection {
+
+  .hunt-cnt {
+    text-align: right;
+  }
+
+  .sort-by {
+    margin-bottom: 6px;
+  }
+
+  .console {
+    padding: 8px;
+  }
+
+  .cages-cnt {
+    margin: 6px;
+  }
+
+  .creature {
+    background-size: cover;
+    font-size: 0.8rem;
+    border-radius: 6px;
+    overflow: hidden;
+    box-shadow: 0 0 4px rgba(0,0,0,0.5);
+
+    .getting-free {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.9);
+      z-index: 10;
+      color: white;
+      text-align: center;
+      font-size: 1.4rem;
+      padding-top: 40%;
+    }
+
+    .md-input {
+      font-size: 1.1rem;
+    }
+
+    md-input-container {
+      margin-bottom: 0;
+
+      .md-errors-spacer {
+        display: none;
+      }
+    }
+
+    .free-creature {
+      position: absolute;
+      top: 0;
+      right: 0;
+      color: black;
+      margin: 4px;
+      font-weight: bold;
+      font-size: 1.2rem;
+
+      &:hover {
+        color: red;
+      }
+    }
+
+    .val {
+      font-weight: bold;
+    }
+
+    .header, .footer {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      background: rgba(255,255,255,0.95);
+      overflow: hidden;
+      color: black;
+      padding: 4px;
+      box-sizing: border-box;
+    }
+
+    .header {
+      top: 0;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.6);
+    }
+
+    .footer {
+      bottom: 0;
+      box-shadow: 0 -1px 2px rgba(0,0,0,0.6);
+    }
+
+    .info {
+      margin: 2px;
+      padding: 0;
+    }
+  }
+}

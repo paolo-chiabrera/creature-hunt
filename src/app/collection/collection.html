@@ -1,0 +1,59 @@
+<div class="collection">
+
+  <!-- stats -->
+  <md-toolbar class="md-hue-1 stats">
+    <div class="md-toolbar-tools">
+      <h2>
+        <span>Creatures Hunt</span>
+      </h2>
+      <span flex></span>
+      <h5>
+        <span>Total mana: {{$ctrl.stats.totalMana}}</span>
+      </h5>
+      <span flex></span>
+      <h5>
+        <span>Total age: {{$ctrl.stats.totalAge}}</span>
+      </h5>
+      <span flex></span>
+      <h5>
+        <span>Empty cages: {{$ctrl.maxCages - $ctrl.stats.totalCreatures}}</span>
+      </h5>
+    </div>
+  </md-toolbar>
+
+  <!-- sort / hunt -->
+  <div class="console" layout="row" layout-align="center center">
+    <div flex="50">
+      <div class="sort-by">Sort by:</div>
+      <md-radio-group ng-model="$ctrl.ordering" layout="row">
+        <md-radio-button value="age" class="md-primary">Age</md-radio-button>
+        <md-radio-button value="name" class="md-primary">Name</md-radio-button>
+        <md-radio-button value="mana" class="md-primary">Mana</md-radio-button>
+        <md-radio-button value="captureTime" class="md-primary">Capture time</md-radio-button>
+      </md-radio-group>
+    </div>
+    <div flex="50" class="hunt-cnt">
+      <span class="hide-xs missed-msg" ng-show="$ctrl.missed">HaHa, you missed it!</span>
+      <md-button class="md-raised md-primary" ng-click="$ctrl.hunt()" ng-disabled="$ctrl.cageIsFull()">Hunt!</md-button>
+    </div>
+  </div>
+
+  <!-- creatures captured -->
+  <md-grid-list class="cages-cnt" md-cols-xs="1" md-cols-sm="2" md-cols-md="4" md-cols-gt-md="6" md-row-height-gt-md="1:1" md-row-height="2:2" md-gutter="12px" md-gutter-gt-sm="8px">
+    <md-grid-tile class="creature" ng-repeat="creature in $ctrl.cages | orderBy:$ctrl.ordering track by $index" ng-style="{'background-image': 'url(/assets/'+creature.type+'.jpg)'}">
+      <div class="header">
+        <md-input-container>
+          <label>Name</label>
+          <input ng-model="creature.name">
+        </md-input-container>
+        <a href="#" class="free-creature" ng-click="$ctrl.freeCreature(creature)">X</a>
+      </div>
+      <div class="footer">
+        <p class="info">Mana: <span class="val">{{creature.mana}}</span></p>
+        <p class="info">Age: <span class="val">{{rgba(0,0,0,0.5);}}</span></p>
+        <p class="info">Captured at: <span class="val">{{creature.captureTime | date : 'H:mm.ss'}}</span></p>
+      </div>
+      <div class="getting-free" ng-show="creature.gettingFree">Setting free..<br>{{creature.name}}</div>
+    </md-grid-tile>
+  </md-grid-list>
+</div>
